@@ -8,13 +8,10 @@ package UI;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -26,32 +23,12 @@ public class Authentification extends javax.swing.JFrame {
      * Creates new form Authentification
      */
     
-    String dbUsername = "root";
-    String dbPassword = "";
-    String dbServer = "jdbc:mysql://localhost:3306/projet_java";
-    String dbClassPathUrl = "com.mysql.jdbc.Driver";
-    Connection connx;
-    
+    static final String DB_USERNAME = "root";
+    static final String DB_PASSWORD = "";
+    static final String DB_SERVER = "jdbc:mysql://localhost:3306/projet_java";
+    static final String DBCLASSPATHURL = "com.mysql.jdbc.Driver";    
     public Authentification() {
         initComponents();
-        connx = databaseConnexions();
-    }
-    
-    public Connection databaseConnexions(){
-        Connection conn;
-        try {
-            //Chargement Driver
-            Class.forName(dbClassPathUrl);
-            JOptionPane.showMessageDialog(null, "Driver Chargé");
-            //Connexion
-            conn = DriverManager.getConnection(dbServer,dbUsername,dbPassword);
-            JOptionPane.showMessageDialog(null, "Connecté");
-            return conn;
-        }
-        catch (SQLException | ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        return null;
     }
 
     /**
@@ -194,6 +171,36 @@ public class Authentification extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        try{
+         connection=DriverManager.getConnection
+            (DB_SERVER,DB_USERNAME,DB_PASSWORD);
+         statement=connection.createStatement();
+         String SQLQuery = "SELECT * from utilisateur WHERE username ='"+jTextField1.getText()+"'AND password ='"+new String(jPasswordField1.getPassword())+"'";
+         resultSet=statement.executeQuery(SQLQuery);
+         resultSet.last();
+         int nbRows = resultSet.getRow();
+         if(nbRows != 1){
+            JOptionPane.showMessageDialog(null, "Nom d'utilisateur ou mot de passe incorrect", "Alert", JOptionPane.ERROR_MESSAGE);
+         }
+         else{
+             new Authentification().setVisible(false);
+             new GUInterface().setVisible(true);
+         }
+      }catch(SQLException ex){
+          ex.printStackTrace();
+      }finally{
+         try {
+            resultSet.close();
+            statement.close();
+            connection.close();
+         } catch (SQLException ex) {
+             ex.printStackTrace();
+         }
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -201,6 +208,7 @@ public class Authentification extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+ 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -229,7 +237,9 @@ public class Authentification extends javax.swing.JFrame {
                 new Authentification().setVisible(true);
             }
         });
-    }
+   
+      }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

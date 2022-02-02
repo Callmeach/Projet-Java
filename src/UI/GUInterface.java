@@ -38,7 +38,7 @@ public class GUInterface extends javax.swing.JFrame {
     String CodeArticle;
     String nom;
     double prix;
-    int quantite;
+    int quantite = 0;
     LocalDate dateCreation;
     //Autres Variables
     DefaultTableModel model,model2,model3;
@@ -267,6 +267,11 @@ public class GUInterface extends javax.swing.JFrame {
         BoutonQuitter = new javax.swing.JButton();
         Parent = new javax.swing.JPanel();
         PanelAccueil = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         PanelEnregistrer = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
@@ -451,15 +456,51 @@ public class GUInterface extends javax.swing.JFrame {
 
         PanelAccueil.setBackground(new java.awt.Color(0, 204, 204));
 
+        jLabel18.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("LOGICIEL DE GESTION DE STOCKS");
+
+        jLabel19.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("MEMBRES DU GROUPE");
+
+        jLabel20.setFont(new java.awt.Font("Constantia", 2, 14)); // NOI18N
+        jLabel20.setText("DJAKPO ACHILLE KOMI GODWILL");
+
+        jLabel21.setFont(new java.awt.Font("Constantia", 2, 14)); // NOI18N
+        jLabel21.setText("COUBAGEAT-TOURE MAHDIYA");
+
+        jLabel22.setFont(new java.awt.Font("Constantia", 2, 14)); // NOI18N
+        jLabel22.setText("SEMODJI KOMLAN MATHIEU");
+
         javax.swing.GroupLayout PanelAccueilLayout = new javax.swing.GroupLayout(PanelAccueil);
         PanelAccueil.setLayout(PanelAccueilLayout);
         PanelAccueilLayout.setHorizontalGroup(
             PanelAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1019, Short.MAX_VALUE)
+            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelAccueilLayout.createSequentialGroup()
+                .addGap(410, 410, 410)
+                .addGroup(PanelAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         PanelAccueilLayout.setVerticalGroup(
             PanelAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGroup(PanelAccueilLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                .addGap(38, 38, 38))
         );
 
         Parent.add(PanelAccueil, "card2");
@@ -1683,7 +1724,12 @@ public class GUInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
